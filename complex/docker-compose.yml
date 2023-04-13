@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  caddy:
+    image: caddy:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./html:/var/www/html
+    depends_on:
+      - php
+  php:
+    image: php:fpm
+    volumes:
+      - ./:/var/www

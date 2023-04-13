@@ -1,0 +1,9 @@
+localhost:80 {
+    root * /var/www/html
+    php_fastcgi tcp://php:9000
+    file_server
+    @static {
+            file
+            path *.ico *.css *.js *.gif *.jpg *.jpeg *.png *.svg *.woff *.pdf *.webp
+    }
+}
